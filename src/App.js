@@ -89,7 +89,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    if(!imageUrl){
+    if(!this.state.imageUrl){
       return;
     }
     fetch('https://enigmatic-anchorage-13624.herokuapp.com/imageurl', {
