@@ -112,10 +112,10 @@ class App extends Component {
           })
           .catch(console.log)
       this.displayFaceBoxes(this.calculateFaceLocations(response));
-      this.setState({input: ''});
       }
     })
     .catch(error => console.log(error));
+    this.setState({input: ''});
   }
 
   onRouteChange = (route) => {
