@@ -111,7 +111,8 @@ class App extends Component {
             this.setState(Object.assign(this.state.user, { entries: count}))
           })
           .catch(console.log)
-      this.displayFaceBoxes(this.calculateFaceLocations(response))
+      this.displayFaceBoxes(this.calculateFaceLocations(response));
+      this.setState({input: ''});
       }
     })
     .catch(error => console.log(error));
