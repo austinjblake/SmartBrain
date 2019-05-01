@@ -41,7 +41,7 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      boxes: {},
+      boxes: [],
       route: 'signin',
       isSignedIn: false,
       user: {
@@ -111,7 +111,7 @@ class App extends Component {
             this.setState(Object.assign(this.state.user, { entries: count}))
           })
           .catch(console.log)
-      this.displayFaceBox(this.calculateFaceLocations(response))
+      this.displayFaceBoxes(this.calculateFaceLocations(response))
       }
     })
     .catch(error => console.log(error));
