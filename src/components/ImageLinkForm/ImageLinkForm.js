@@ -17,7 +17,6 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit, input }) => {
         <div className='form center pa4 br3 shadow-5'>
           <input 
             onKeyUp={(e => {
-                console.log(e.keyCode);
                 handleEnter(e, {onButtonSubmit});
               })} 
             value={input} placeholder='Paste image URL here' 
