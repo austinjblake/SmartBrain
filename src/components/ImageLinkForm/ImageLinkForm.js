@@ -1,6 +1,12 @@
 import React from 'react';
 import './ImageLinkForm.css';
 
+const handleEnter = (e, {onButtonSubmit}) => {
+  if(e.keyCode === 13){
+    onButtonSubmit();
+  }
+}
+
 const ImageLinkForm = ({ onInputChange, onButtonSubmit, input }) => {
   return (
     <div>
@@ -9,7 +15,16 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit, input }) => {
       </p>
       <div className='center'>
         <div className='form center pa4 br3 shadow-5'>
-          <input value={input} placeholder='Paste image URL here' className='f4 pa2 w-70 center' type='text' onChange={onInputChange}/>
+          <input 
+            onKeyUp={(e => {
+                console.log(e.keyCode);
+                handleEnter(e, {onButtonSubmit});
+              })} 
+            value={input} placeholder='Paste image URL here' 
+            className='f4 pa2 w-70 center' 
+            type='text' 
+            onChange={onInputChange}
+          />
           <button 
             className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple'
             onClick={onButtonSubmit}
