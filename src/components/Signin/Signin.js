@@ -51,6 +51,12 @@ class Signin extends React.Component {
                   name="email-address"  
                   id="email-address" 
                   onChange={this.onEmailChange}
+                  onKeyUp={(e => {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 13){
+                      this.onSubmitSignIn();
+                    }
+                  })} 
                 />
               </div>
               <div className="mv3">
@@ -61,6 +67,12 @@ class Signin extends React.Component {
                   name="password"  
                   id="password" 
                   onChange={this.onPasswordChange}
+                  onKeyUp={(e => {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 13){
+                      this.onSubmitSignIn();
+                    }
+                  })} 
                 />
               </div>
             </fieldset>
