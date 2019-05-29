@@ -23,7 +23,8 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://enigmatic-anchorage-13624.herokuapp.com/register', {
+    if (this.state.email.includes('@')){
+      fetch('https://enigmatic-anchorage-13624.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -37,8 +38,14 @@ class Register extends React.Component {
         if (user.id) {
           this.props.loadUser(user)
           this.props.onRouteChange('home');
+        } else {
+          alert('Unable to complete registration')
         }
       })
+    } else {
+      alert('Please enter a valid email address')
+    }
+    
   }
 
   render() {
